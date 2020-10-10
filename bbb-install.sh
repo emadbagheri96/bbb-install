@@ -304,8 +304,8 @@ HERE
     MONGODB=mongodb-org
   fi
 
-  apt-get update
-  apt-get dist-upgrade -yq
+  torify apt-get update
+  torify apt-get dist-upgrade -yq
 
   need_pkg nodejs $MONGODB apt-transport-https haveged build-essential yq # default-jre
   need_pkg bigbluebutton
@@ -470,7 +470,7 @@ need_pkg() {
   fi
 
   if ! dpkg -s ${@:1} >/dev/null 2>&1; then
-    LC_CTYPE=C.UTF-8 apt-get install -yq ${@:1}
+    LC_CTYPE=C.UTF-8 torify apt-get install -yq ${@:1}
   fi
 }
 

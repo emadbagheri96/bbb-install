@@ -465,7 +465,7 @@ need_pkg() {
   check_root
 
   if [ ! "$SOURCES_FETCHED" = true ]; then
-    apt-get update
+    torify apt-get update
     SOURCES_FETCHED=true
   fi
 
